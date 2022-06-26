@@ -1,10 +1,10 @@
 package pvz.community
 
-class PlantsVSZombies {
+import pvz.community.launch.LauncherSettings
+import pvz.community.renderer.window.GameWindow
 
-    fun main(args: Array<String>) {
-        println("Hello World!")
-    }
+class PlantsVSZombies(settings: LauncherSettings) {
 
+    private var window: GameWindow? = GameWindow();
 
 }
