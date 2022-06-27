@@ -1,4 +1,4 @@
-package pvz.community.launch.configuration;
+package pvz.community.launcher.configuration;
 
 import pvz.community.logger.GlobalConsole;
 

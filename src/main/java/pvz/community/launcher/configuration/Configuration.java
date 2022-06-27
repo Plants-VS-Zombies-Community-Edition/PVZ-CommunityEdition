@@ -1,4 +1,4 @@
-package pvz.community.launch.configuration;
+package pvz.community.launcher.configuration;
 
 import kotlin.text.Charsets;
 import org.apache.commons.io.FileUtils;

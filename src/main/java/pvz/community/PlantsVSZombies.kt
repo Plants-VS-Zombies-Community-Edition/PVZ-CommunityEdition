@@ -1,7 +1,7 @@
 package pvz.community
 
 import lombok.Getter
-import pvz.community.launch.LauncherSettings
+import pvz.community.launcher.LauncherSettings
 import pvz.community.renderer.window.GameWindow
 
 /**
@@ -13,11 +13,20 @@ import pvz.community.renderer.window.GameWindow
  **/
 class PlantsVSZombies(settings: LauncherSettings){
 
+    private var s = settings;
+    fun getSettings(): LauncherSettings {
+        return s;
+    }
     private val instance: PlantsVSZombies = this
     companion object {
         lateinit var instance: PlantsVSZombies //This is used to access the game instance from anywhere in the game
     }
 
     @Getter private var window: GameWindow? = GameWindow();
+
+
+
+
+
 
 }

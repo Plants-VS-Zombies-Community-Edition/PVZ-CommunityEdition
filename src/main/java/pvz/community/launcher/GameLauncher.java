@@ -1,4 +1,4 @@
-package pvz.community.launch;
+package pvz.community.launcher;
 
 import pvz.community.PlantsVSZombies;
 import pvz.community.logger.GlobalConsole;
