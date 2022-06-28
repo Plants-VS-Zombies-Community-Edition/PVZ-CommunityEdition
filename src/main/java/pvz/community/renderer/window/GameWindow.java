@@ -1,12 +1,13 @@
 package pvz.community.renderer.window;
 
+import lombok.Getter;
 import pvz.community.launcher.GameLauncher;
 
 import javax.swing.*;
 
 public class GameWindow extends JFrame{
 
-    final GamePanel gamePanel = new GamePanel();
+    @Getter private final GamePanel gamePanel = new GamePanel();
 
     public GameWindow(){
         setTitle(GameLauncher.TITLE);

@@ -15,16 +15,7 @@ public class GameLauncher {
     public static final String JAVA_VERSION = System.getProperty("java.version").toLowerCase();
     public static final String JAVA_VENDOR = System.getProperty("java.vendor").toLowerCase();
 
-    @Getter private static GameLauncher instance;
-    @Getter
-    private final PlantsVSZombies game;
-    private GameLauncher() {
-        if (instance == null) instance = this;
-        final LauncherSettings settings = new LauncherSettings(false, true);
-        game = new PlantsVSZombies(settings);
-
-    }
-    public static void main(String[] args) {;
+    public static void main(String[] args) {
 
         GlobalConsole.getLogger().info("Launching Plants VS Zombies...");
         GlobalConsole.getLogger().info("OS: " + OS);
@@ -32,7 +23,10 @@ public class GameLauncher {
         GlobalConsole.getLogger().info("OS Version: " + OS_VERSION);
         GlobalConsole.getLogger().info("Java Version: " + JAVA_VERSION);
         GlobalConsole.getLogger().info("Java Vendor: " + JAVA_VENDOR);
-        new GameLauncher();
+
+        // TODO- FIX THIS
+        final LauncherSettings settings = new LauncherSettings(false, true);
+        PlantsVSZombies game = new PlantsVSZombies(settings);
     }
 
 
