@@ -1,5 +1,6 @@
 package pvz.community.launcher;
 
+import lombok.Getter;
 import pvz.community.PlantsVSZombies;
 import pvz.community.logger.GlobalConsole;
 
@@ -14,11 +15,16 @@ public class GameLauncher {
     public static final String JAVA_VERSION = System.getProperty("java.version").toLowerCase();
     public static final String JAVA_VENDOR = System.getProperty("java.vendor").toLowerCase();
 
-    public static void main(String[] args) {
+    @Getter private static GameLauncher instance;
+    @Getter
+    private final PlantsVSZombies game;
+    private GameLauncher() {
+        if (instance == null) instance = this;
+        final LauncherSettings settings = new LauncherSettings(false, true);
+        game = new PlantsVSZombies(settings);
 
-        boolean debugMode = false;
-        boolean fullscreen = false;
-        boolean firstLaunch = true;
+    }
+    public static void main(String[] args) {;
 
         GlobalConsole.getLogger().info("Launching Plants VS Zombies...");
         GlobalConsole.getLogger().info("OS: " + OS);
@@ -26,9 +32,7 @@ public class GameLauncher {
         GlobalConsole.getLogger().info("OS Version: " + OS_VERSION);
         GlobalConsole.getLogger().info("Java Version: " + JAVA_VERSION);
         GlobalConsole.getLogger().info("Java Vendor: " + JAVA_VENDOR);
-
-        LauncherSettings settings = new LauncherSettings(false, true);
-        PlantsVSZombies gameInstance = new PlantsVSZombies(settings);
+        new GameLauncher();
     }
 
 

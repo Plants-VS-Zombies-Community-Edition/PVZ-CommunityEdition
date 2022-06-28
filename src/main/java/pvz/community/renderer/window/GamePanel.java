@@ -18,6 +18,8 @@ public class GamePanel extends JPanel implements Runnable{
 
     private Thread gameThread;
 
+    private int FPS = PlantsVSZombies.Companion.getInstance().getGame().getSettings().getMAX_FPS();
+
     public GamePanel() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setBackground(Color.BLACK);
@@ -38,8 +40,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void run() {
 
 
-        int maxFps = PlantsVSZombies.instance.getSettings().getMAX_FPS();
-        final double drawInterval = 1000000000.0 / maxFps;
+        final double drawInterval = 1000000000.0 / FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
@@ -54,18 +55,14 @@ public class GamePanel extends JPanel implements Runnable{
                 repaint();
                 delta--;
             }
-
-            update();
-            repaint();
         }
     }
 
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
         Graphics2D graphics2D = (Graphics2D) graphics;
-
-        graphics2D.setColor(Color.WHITE);
-
+        graphics2D.setColor(Color.RED);
+        graphics2D.drawString("FPS: " + FPS, 100, 100);
 
         graphics2D.dispose(); // Stays in the bottom :d
     }
