@@ -14,8 +14,4 @@ public class Sprite {
         this.width = width;
         this.height = height;
     }
-
-
-
-
 }
