@@ -1,6 +1,6 @@
 package pvz.community.launcher.configuration;
 
-import pvz.community.logger.GlobalConsole;
+import pvz.community.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +16,7 @@ public class LaunchConfiguration {
         if (!configFolder.exists()) {
             configFolder.mkdirs();
         }
-        GlobalConsole.getLogger().info("Saving launch configuration...");
+        Logger.Companion.info("Saving launch configuration...");
 
 
     }

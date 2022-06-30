@@ -1,6 +1,7 @@
 package pvz.community.renderer.image;
 
-import pvz.community.logger.GlobalConsole;
+
+import pvz.community.Logger;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -8,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.Objects;
+
 
 public class BufferedImageLoader {
 
@@ -26,28 +27,31 @@ public class BufferedImageLoader {
             basicFileAttributes = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
         }
         catch (IOException e) {
-            GlobalConsole.getLogger().error("Error basic file attributes for the image in: " + path);
+            Logger.Companion.error("Error basic file attributes for the image in: " + path);
             e.printStackTrace();
             return null;
         }
 
         if (!file.exists()) {
-            GlobalConsole.getLogger().error("File not found: " + path);
+            Logger.Companion.error("File not found: " + path);
             return null;
         }
 
         if (basicFileAttributes.isDirectory()) {
-            GlobalConsole.getLogger().error("File is a directory: " + path);
+            Logger.Companion.error("File is a directory: " + path);
             return null;
         }
         try {
             image = ImageIO.read(new File(resourceDir + path));
+
             return image;
         }
         catch (IOException e) {
-            GlobalConsole.getLogger().error("Error loading image: " + path);
+            Logger.Companion.error("Error loading image: " + path);
             e.printStackTrace();
             return null;
         }
     }
 }
+
+

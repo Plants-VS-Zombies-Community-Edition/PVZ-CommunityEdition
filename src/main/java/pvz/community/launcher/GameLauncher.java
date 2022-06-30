@@ -1,8 +1,7 @@
 package pvz.community.launcher;
 
-import lombok.Getter;
+import pvz.community.Logger;
 import pvz.community.PlantsVSZombies;
-import pvz.community.logger.GlobalConsole;
 
 public class GameLauncher {
 
@@ -17,12 +16,12 @@ public class GameLauncher {
 
     public static void main(String[] args) {
 
-        GlobalConsole.getLogger().info("Launching Plants VS Zombies...");
-        GlobalConsole.getLogger().info("OS: " + OS);
-        GlobalConsole.getLogger().info("OS Arch: " + OS_ARCH);
-        GlobalConsole.getLogger().info("OS Version: " + OS_VERSION);
-        GlobalConsole.getLogger().info("Java Version: " + JAVA_VERSION);
-        GlobalConsole.getLogger().info("Java Vendor: " + JAVA_VENDOR);
+        Logger.Companion.info("Launching Plants VS Zombies...");
+        Logger.Companion.info("OS: " + OS);
+        Logger.Companion.info("OS Arch: " + OS_ARCH);
+        Logger.Companion.info("OS Version: " + OS_VERSION);
+        Logger.Companion.info("Java Version: " + JAVA_VERSION);
+        Logger.Companion.info("Java Vendor: " + JAVA_VENDOR);
 
         // TODO- FIX THIS
         final LauncherSettings settings = new LauncherSettings(false, true);
