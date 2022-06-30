@@ -7,19 +7,10 @@ import java.io.FileWriter
 import java.io.IOException
 import kotlin.text.Charsets.UTF_8
 
-class Configuration {
-    private val file: File
-    private var options: MutableMap<String?, Any?>
-
-    constructor(file: File, options: MutableMap<String?, Any?>) {
-        this.file = file
-        this.options = options
-    }
-
-    constructor(file: File) {
-        this.file = file
-        options = HashMap()
-    }
+class Configuration(
+    private val file: File,
+    private var options: MutableMap<String?, Any?> = mutableMapOf()
+) {
 
     operator fun get(key: String?): Any? {
         return options[key]
@@ -33,10 +24,9 @@ class Configuration {
     fun save() {
         val jsonObject = JSONObject(options)
         file.createNewFile()
-        val fileWriter = FileWriter(file)
-        fileWriter.write(jsonObject.toString())
-        fileWriter.flush()
-        fileWriter.close()
+        val fileWriter = FileWriter(file).use {
+            it.write(jsonObject.toString())
+        }
     }
 
     companion object {
@@ -44,9 +34,9 @@ class Configuration {
         fun loadExistingConfiguration(file: File): Configuration {
             val jsonObject = JSONObject(FileUtils.readFileToString(file, UTF_8))
             return Configuration(file, jsonObject.toMap())
+
         }
 
-        @kotlin.jvm.JvmStatic
         fun newConfiguration(file: File): Configuration {
             return Configuration(file)
         }

@@ -1,62 +1,17 @@
-package pvz.community.controller;
+package pvz.community.controller
 
-import java.awt.event.*;
+import java.awt.event.*
 
-public class GameController implements Runnable, KeyListener, MouseListener, MouseMotionListener {
-
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-
-    }
-
-    @Override
-    public void run() {
-
-    }
+class GameController : Runnable, KeyListener, MouseListener, MouseMotionListener {
+    override fun keyTyped(e: KeyEvent) {}
+    override fun keyPressed(e: KeyEvent) {}
+    override fun keyReleased(e: KeyEvent) {}
+    override fun mouseClicked(e: MouseEvent) {}
+    override fun mousePressed(e: MouseEvent) {}
+    override fun mouseReleased(e: MouseEvent) {}
+    override fun mouseEntered(e: MouseEvent) {}
+    override fun mouseExited(e: MouseEvent) {}
+    override fun mouseDragged(e: MouseEvent) {}
+    override fun mouseMoved(e: MouseEvent) {}
+    override fun run() {}
 }

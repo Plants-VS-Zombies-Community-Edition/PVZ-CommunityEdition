@@ -1,32 +1,34 @@
-package pvz.community.launcher;
+package pvz.community.launcher
 
-import pvz.community.utils.Logger;
-import pvz.community.PlantsVSZombies;
+import pvz.community.PlantsVSZombies
+import pvz.community.utils.Logger.info
 
-public class GameLauncher {
+object GameLauncher {
 
-    public static final String VERSION = "1.0.0";
-    public static final String TITLE = "Plants VS Zombies " + VERSION;
+    const val VERSION = "1.0.0"
+    const val TITLE = "Plants VS Zombies $VERSION"
+    private fun getProp(of: String) = System.getProperty(of).lowercase()
 
-    public static final String OS = System.getProperty("os.name").toLowerCase();
-    public static final String OS_ARCH = System.getProperty("os.arch").toLowerCase();
-    public static final String OS_VERSION = System.getProperty("os.version").toLowerCase();
-    public static final String JAVA_VERSION = System.getProperty("java.version").toLowerCase();
-    public static final String JAVA_VENDOR = System.getProperty("java.vendor").toLowerCase();
-
-    public static void main(String[] args) {
-
-        Logger.Companion.info("Launching Plants VS Zombies...");
-        Logger.Companion.info("OS: " + OS);
-        Logger.Companion.info("OS Arch: " + OS_ARCH);
-        Logger.Companion.info("OS Version: " + OS_VERSION);
-        Logger.Companion.info("Java Version: " + JAVA_VERSION);
-        Logger.Companion.info("Java Vendor: " + JAVA_VENDOR);
-
-        // TODO- FIX THIS
-        final LauncherSettings settings = new LauncherSettings(false, true);
-        PlantsVSZombies game = new PlantsVSZombies(settings);
-    }
+    val OS = getProp("os.name")
+    val OS_ARCH = getProp("os.arch")
+    val OS_VERSION = getProp("os.version")
+    val JAVA_VERSION = getProp("java.version")
+    val JAVA_VENDOR = getProp("java.vendor")
 
 
+}
+
+fun main() {
+    info(
+        """Launching Plants VS Zombies...
+            OS: ${GameLauncher.OS}
+            OS Arch: ${GameLauncher.OS_ARCH}
+            OS Version: ${GameLauncher.OS_VERSION}
+            Java Version: ${GameLauncher.JAVA_VERSION}
+            Java Vendor: ${GameLauncher.JAVA_VENDOR}
+    """.trimMargin()
+    )
+    // TODO- FIX THIS
+    val settings = LauncherSettings()
+    val game = PlantsVSZombies(settings)
 }

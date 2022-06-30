@@ -27,18 +27,18 @@ public class BufferedImageLoader {
             basicFileAttributes = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
         }
         catch (IOException e) {
-            Logger.Companion.error("Error basic file attributes for the image in: " + path);
+            Logger.INSTANCE.error("Error basic file attributes for the image in: " + path);
             e.printStackTrace();
             return null;
         }
 
         if (!file.exists()) {
-            Logger.Companion.error("File not found: " + path);
+            Logger.INSTANCE.error("File not found: " + path);
             return null;
         }
 
         if (basicFileAttributes.isDirectory()) {
-            Logger.Companion.error("File is a directory: " + path);
+            Logger.INSTANCE.error("File is a directory: " + path);
             return null;
         }
         try {
@@ -47,7 +47,7 @@ public class BufferedImageLoader {
             return image;
         }
         catch (IOException e) {
-            Logger.Companion.error("Error loading image: " + path);
+            Logger.INSTANCE.error("Error loading image: " + path);
             e.printStackTrace();
             return null;
         }

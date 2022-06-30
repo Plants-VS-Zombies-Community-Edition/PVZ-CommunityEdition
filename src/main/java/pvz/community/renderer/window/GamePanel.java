@@ -30,10 +30,10 @@ public class GamePanel extends JPanel implements Runnable {
 
 
     public void initializeGameThread() {
-        Logger.Companion.info("Initializing game thread...");
+        Logger.INSTANCE.info("Initializing game thread...");
         gameThread = new Thread(this);
         gameThread.start();
-        Logger.Companion.info("Game thread initialized.");
+        Logger.INSTANCE.info("Game thread initialized.");
     }
 
     // Delta/Accumulator game loop

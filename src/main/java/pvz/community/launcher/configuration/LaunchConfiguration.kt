@@ -1,24 +1,20 @@
-package pvz.community.launcher.configuration;
+package pvz.community.launcher.configuration
 
-import pvz.community.utils.Logger;
+import pvz.community.launcher.configuration.Configuration.Companion.newConfiguration
+import pvz.community.utils.Logger.info
+import java.io.File
+import java.io.IOException
 
-import java.io.File;
-import java.io.IOException;
+class LaunchConfiguration {
+    var configFolder = File("pvz-community")
+    var launchConfigurationJSON = File(configFolder, "launch.json")
+    var launchConfig = newConfiguration(launchConfigurationJSON)
 
-public class LaunchConfiguration {
-
-    public File configFolder = new File("pvz-community");
-    public File launchConfigurationJSON = new File(configFolder, "launch.json");
-
-    public Configuration launchConfig = Configuration.newConfiguration(launchConfigurationJSON);
-
-    public void saveLaunchConfiguration() throws IOException {
+    @Throws(IOException::class)
+    fun saveLaunchConfiguration() {
         if (!configFolder.exists()) {
-            configFolder.mkdirs();
+            configFolder.mkdirs()
         }
-        Logger.Companion.info("Saving launch configuration...");
-
-
+        info("Saving launch configuration...")
     }
-
 }

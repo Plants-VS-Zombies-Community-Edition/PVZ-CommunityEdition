@@ -8,8 +8,11 @@ package pvz.community.utils
  * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
 
-enum class Colors(private val value: String) {
+enum class Colors(private val windows: String) {
     RESET("\u001B[0m"),
+    REVERSE("\u001B[7m"),
+    UNDERLINE("\u001B[4m"),
+    BOLD("\u001B[1m"),
     BLACK("\u001B[30m"),
     RED("\u001B[31m"),
     GREEN("\u001B[32m"),
@@ -28,7 +31,7 @@ enum class Colors(private val value: String) {
     BG_WHITE("\u001B[47m");
 
 
-    fun colorize() = value
+    fun colorize() = windows
 }
 
 fun String.color(vararg colors: Colors): String {
