@@ -1,6 +1,6 @@
 package pvz.community.launcher;
 
-import pvz.community.Logger;
+import pvz.community.utils.Logger;
 import pvz.community.PlantsVSZombies;
 
 public class GameLauncher {

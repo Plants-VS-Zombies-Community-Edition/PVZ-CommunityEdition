@@ -1,7 +1,7 @@
 package pvz.community.renderer.image;
 
 
-import pvz.community.Logger;
+import pvz.community.utils.Logger;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

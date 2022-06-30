@@ -1,6 +1,6 @@
 package pvz.community.renderer.window;
 
-import pvz.community.Logger;
+import pvz.community.utils.Logger;
 import pvz.community.PlantsVSZombies;
 
 import javax.swing.*;

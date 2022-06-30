@@ -1,4 +1,4 @@
-package pvz.community
+package pvz.community.utils
 
 import pvz.community.launcher.GameLauncher
 

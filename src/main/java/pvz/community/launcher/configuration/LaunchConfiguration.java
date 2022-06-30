@@ -1,6 +1,6 @@
 package pvz.community.launcher.configuration;
 
-import pvz.community.Logger;
+import pvz.community.utils.Logger;
 
 import java.io.File;
 import java.io.IOException;
