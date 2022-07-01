@@ -1,14 +1,13 @@
 package pvz.community.renderer.window;
 
+import pvz.community.utils.Logger;
 import pvz.community.PlantsVSZombies;
-import pvz.community.launcher.GameLauncher;
-import pvz.community.logger.GlobalConsole;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class GamePanel extends JPanel implements Runnable{
+public class GamePanel extends JPanel implements Runnable {
 
     final int WIDTH = 800;
     final int HEIGHT = 600;
@@ -31,10 +30,10 @@ public class GamePanel extends JPanel implements Runnable{
 
 
     public void initializeGameThread() {
-        GlobalConsole.getLogger().info("Initializing game thread...");
+        Logger.INSTANCE.info("Initializing game thread...");
         gameThread = new Thread(this);
         gameThread.start();
-        GlobalConsole.getLogger().info("Game thread initialized.");
+        Logger.INSTANCE.info("Game thread initialized.");
     }
 
     // Delta/Accumulator game loop

@@ -1,13 +1,7 @@
 package pvz.community.launcher
 
-import lombok.Getter
-
-class LauncherSettings(val DEBUG_MODE: Boolean, val FIRST_LAUNCH: Boolean) {
-
-    @Getter
-    var MAX_FPS = 60;
-
-
-
+data class LauncherSettings(val DEBUG_MODE: Boolean = false, val FIRST_LAUNCH: Boolean = true) {
+    var MAX_FPS = 60
+        private set
 
 }
