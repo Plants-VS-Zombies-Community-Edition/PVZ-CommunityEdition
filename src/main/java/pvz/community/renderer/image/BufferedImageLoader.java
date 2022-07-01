@@ -2,7 +2,6 @@ package pvz.community.renderer.image;
 
 
 import pvz.community.utils.Logger;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -18,6 +17,20 @@ public class BufferedImageLoader {
         return image;
     }
 
+    public boolean exists(String resource) {
+        File file = new File(resourceDir + resource);
+        BasicFileAttributes attr = null;
+        try {
+            attr = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
+            if (file.exists() && file.isFile()) return true;
+            if (attr.isRegularFile()) return true;
+
+        }
+        catch (IOException e) {
+            Logger.INSTANCE.error(e.getMessage());
+        }
+        return false;
+    }
 
     public BufferedImage loadImage(String path) {
         File file = new File(resourceDir + path);

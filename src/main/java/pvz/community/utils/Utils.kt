@@ -1,10 +1,19 @@
-package pvz.community
+package pvz.community.utils
 
-import pvz.community.utils.Colors
-import pvz.community.utils.color
 import kotlin.random.Random
 
 fun Any?.print() = println(this)
+
+
+/**
+ * Guarantees a number above 0
+ */
+fun Int?.nBZ() = if ((this ?: 0) < 0) 0 else this?:0
+fun Double?.nBZ() = if ((this ?: 0.0) < 0.0) 0.0 else this?:0.0
+
+fun Int.nB(value: Int) = if (this < value) value else this
+fun Double.nB(value: Double) = if (this < value) value else this
+
 
 fun Any?.printAsString() = println(this.toString())
 fun Any?.printAsString(prefix: String) = println("$prefix${this.toString()}")

@@ -1,7 +1,9 @@
 package pvz.community.utils
 
 class UpTime {
-    private val start = System.currentTimeMillis()
+
+    val start = System.currentTimeMillis()
+    val startNano = System.nanoTime()
 
     enum class Format(val ms: Int) {
         MILLISECOND(1),
@@ -9,7 +11,14 @@ class UpTime {
         MINUTE(60000),
         HOUR(3600000),
         DAY(86400000),
-        WEEK(604800000)
+        WEEK(604800000),
+    }
+    enum class FormatDelta(val deltaTime: Double) {
+        SECOND(1E-9),
+        MINUTE(1E-6),
+        HOUR(1E-3),
+        DAY(1E-0),
+        WEEK(1E3),
     }
 
     data class Time(
@@ -21,8 +30,8 @@ class UpTime {
         var milliseconds: Long = 0
     )
 
-    fun getTime(format: Format): Long = (start - System.currentTimeMillis()) / format.ms
-
+    fun getTime(format: Format): Long = (System.currentTimeMillis()- start ) / format.ms
+    fun getTimeNano(format: FormatDelta): Float = ((System.nanoTime() - startNano ) * format.deltaTime).toFloat()
     fun getUpTime(): Time {
         var currentMs = System.currentTimeMillis() - start
         return Time().apply {

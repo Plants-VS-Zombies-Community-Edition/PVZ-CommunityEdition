@@ -3,6 +3,9 @@ package pvz.community.controller
 import java.awt.event.*
 
 class GameController : Runnable, KeyListener, MouseListener, MouseMotionListener {
+
+
+
     override fun keyTyped(e: KeyEvent) {}
     override fun keyPressed(e: KeyEvent) {}
     override fun keyReleased(e: KeyEvent) {}

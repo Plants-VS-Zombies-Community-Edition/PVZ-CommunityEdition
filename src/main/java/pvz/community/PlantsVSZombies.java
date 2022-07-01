@@ -3,7 +3,7 @@ package pvz.community;
 import lombok.Getter;
 import pvz.community.launcher.LauncherSettings;
 import pvz.community.renderer.WindowObjectRenderer;
-import pvz.community.renderer.window.GameWindow;
+import pvz.community.renderer.window.Window;
 import pvz.community.utils.UpTime;
 
 public class PlantsVSZombies {
@@ -13,7 +13,7 @@ public class PlantsVSZombies {
     @Getter
     private final LauncherSettings settings;
     @Getter
-    private final GameWindow window;
+    private final Window window;
     @Getter
     private final UpTime systemUtils;
     @Getter
@@ -23,7 +23,8 @@ public class PlantsVSZombies {
         instance = this;
         this.settings = settings;
         this.systemUtils = new UpTime();
-        this.window = new GameWindow();
+        this.window = Window.get();
+        window.run();
         this.renderer = new WindowObjectRenderer();
     }
 }

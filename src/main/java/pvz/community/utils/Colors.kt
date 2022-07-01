@@ -1,13 +1,5 @@
 package pvz.community.utils
 
-/*
- * (C) 15/03/2022, 0:33 - Alex Irving | All rights reserved
- * ConsoleColors.kt - is part of the McEngine!
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- * Written by Alex Irving <alexirving992@gmail.com>, day month year
- */
-
 enum class Colors(private val windows: String) {
     RESET("\u001B[0m"),
     REVERSE("\u001B[7m"),
