@@ -100,6 +100,7 @@ public class Window {
     public static Window get() {
         if (Window.window == null) {
             Window.window = new Window();
+            window.init();
         }
         return Window.window;
     }
